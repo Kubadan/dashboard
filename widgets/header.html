@@ -1,0 +1,27 @@
+<div class="header">
+    <h2 id="greeting"></h2>
+
+    <script>
+        (function () {
+            const student = 'Jakub';
+            const greetingEl = document.getElementById('greeting'); 
+
+            function updateGreeting() {
+                const hour = new Date().getHours();
+                let msg = '';
+                if (hour < 12 && hour > 5) {
+                    msg = "Dobré Granko,";
+                } else if (hour < 18) {
+                    msg = "Dobré Vodpoledne,";
+
+                } else if (hour < 20) {
+                    msg = "Dobrý večer,";
+                } else {
+                    msg = "Dobrou noc,"
+                }
+                greetingEl.textContent = msg + ' ' + student + '!';
+            }
+            updateGreeting();
+        })();
+    </script>
+</div>
