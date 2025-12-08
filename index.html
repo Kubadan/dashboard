@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
   <meta charset="UTF-8">
   <title>Osobní dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main id="dashboard" class="grid"></main>
   <script>
@@ -17,7 +19,8 @@
       { name: 'date', width: 'full' },
       { name: 'clock', width: 'full' },
       { name: 'header', width: 'full' },
-      { name: 'calculator', width: 'full' },
+      { name: 'calculator', width: 'half' },
+      { name: 'todo', width:'half' },
     ];
 
     async function loadWidgets() {
@@ -26,7 +29,7 @@
         // podpora pro string i objekt
         const widgetName = widgetConfig.name;
         const widgetWidth = widgetConfig.width;
-        
+
         // načíst widget
         const res = await fetch(`widgets/${widgetName}.html`);
         const html = await res.text();
@@ -34,15 +37,15 @@
         // vytvořit wrapper pro widget
         const widgetWrapper = document.createElement('div');
         widgetWrapper.className = 'widget';
-        
+
         // přidat třídu pro šířku, pokud je specifikována
         if (widgetWidth) {
           widgetWrapper.classList.add(widgetWidth);
         }
-        
+
         widgetWrapper.innerHTML = html;
         container.appendChild(widgetWrapper);
-        
+
         // spustit skripty z widgetu
         const scripts = widgetWrapper.querySelectorAll('script');
         scripts.forEach(oldScript => {
@@ -55,4 +58,5 @@
     loadWidgets();
   </script>
 </body>
+
 </html>
