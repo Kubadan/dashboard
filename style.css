@@ -36,7 +36,7 @@ body {
 /* Grid systém pro šířku widgetů */
 .widget.full {
   grid-column: 1 / -1; /* Celá šířka - 12 sloupců */
-  color:darkgoldenrod;
+  color:rgb(0, 0, 0);
 }
 
 .widget.half {
@@ -64,3 +64,15 @@ body {
     grid-column: 1 / -1;
   };
   }
+
+.obrazky {
+  display: flex;
+  margin: px;
+}
+.obrazek {
+  padding: 5px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+
+}
