@@ -65,14 +65,3 @@ body {
   };
   }
 
-.obrazky {
-  display: flex;
-  margin: px;
-}
-.obrazek {
-  padding: 5px;
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-
-}
