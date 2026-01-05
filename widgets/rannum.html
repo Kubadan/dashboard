@@ -1,0 +1,52 @@
+<div class="container">
+    <div id="number">0</div>
+
+    <select id="range">
+        <option value="10">0 – 10</option>
+        <option value="100">0 – 100</option>
+    </select>
+
+    <br>
+
+    <button onclick="generate()">Generovat</button>
+</div>
+
+
+<style>
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(255, 246, 246, 0.1);
+        }
+
+        #number {
+            font-size: 64px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        select, button {
+
+            border: 1px solid #ccc;
+            font-size: 16px;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        button {
+        background-color: rgb(146, 144, 144);
+        }
+    </style>
+
+<script>
+    function generate() {
+        const max = Number(document.getElementById("range").value);
+        const randomNumber = Math.floor(Math.random() * (max + 1));
+        document.getElementById("number").textContent = randomNumber;
+    }
+</script>
+

@@ -1,0 +1,43 @@
+<div class="video-widget">
+  <video
+    src="mia.mp4"
+    muted
+    playsinline
+    preload="metadata"
+  >
+</video>
+</div>
+
+
+
+<style>
+.video-widget {
+  height: auto;
+    overflow: hidden;
+}
+
+.video-widget video {
+  width: 45%;
+  display: block;
+  margin: 0 auto;
+    
+}
+</style>
+
+
+<script>
+document.querySelectorAll('.video-widget').forEach(widget => {
+  const video = widget.querySelector('video');
+
+  widget.addEventListener('mouseenter', () => {
+    video.currentTime = 2;
+    video.play();
+  });
+
+  widget.addEventListener('mouseleave', () => {
+    video.pause();
+    video.currentTime = 0;
+  });
+});
+</script>
+
