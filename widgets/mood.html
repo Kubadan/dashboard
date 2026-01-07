@@ -1,0 +1,106 @@
+<div class="mood-widget">
+  <h3 class="mood-title">Jak se dnes cítíš?</h3>
+  <input type="date" class="mood-date">
+
+  <div class="moods">
+    <button data-mood="😄">😄</button>
+    <button data-mood="🙂">🙂</button>
+    <button data-mood="😐">😐</button>
+    <button data-mood="😕">😕</button>
+    <button data-mood="😡">😡</button>
+  </div>
+
+  <ul class="history"></ul>
+</div>
+
+<style>
+  .mood-widget {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    padding: 12px;
+    font-family: sans-serif;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.586) ;
+    box-shadow: 0 4px 8px #0001;
+  }
+
+  .moods {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+
+  .moods button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    background: auto;
+    box-shadow: 0 2px 4px #0002;
+
+    display: flex;
+    align-items: center;
+    justify-content: center; /* ← vycentrování emoji */
+  }
+
+  .moods button:hover {
+    background: #eef;
+  }
+
+  .history {
+    list-style: none;
+    padding: 0;
+    font-size: 20px;
+  }
+
+  .history li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+.mood-title {
+    animation: moodGlow 3s infinite alternate;
+  }
+
+  @keyframes moodGlow {
+    0%   { color: #6366f1; } /* fialová */
+    50%  { color: #22c55e; } /* zelená */
+    100% { color: #f59e0b; } /* oranžová */
+  }
+</style>
+
+<script>
+  const key = "moods";
+  const widget = document.querySelector(".mood-widget");
+  const date = widget.querySelector(".mood-date");
+  const hist = widget.querySelector(".history");
+
+  date.value = new Date().toISOString().split("T")[0];
+
+  const load = () => JSON.parse(localStorage.getItem(key)) || {};
+  const save = d => localStorage.setItem(key, JSON.stringify(d));
+
+  function render() {
+    const d = load();
+    hist.innerHTML = "";
+    for (let i = 6; i >= 0; i--) {
+      const t = new Date(); t.setDate(t.getDate() - i);
+      const k = t.toISOString().split("T")[0];
+      if (d[k]) hist.innerHTML += `<li><span>${k}</span><span>${d[k]}</span></li>`;
+    }
+  }
+
+  widget.querySelectorAll(".moods button").forEach(b =>
+    b.onclick = () => {
+      const d = load();
+      d[date.value] = b.dataset.mood;
+      save(d);
+      render();
+    }
+  );
+
+  render();
+</script>
