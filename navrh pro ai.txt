@@ -1,0 +1,3 @@
+Generátor náhodného čísla od 0 po 10 a 0 po 100 s možností vybíráním a jednoduchým UI - tlačítko, nad nim velké vygenerované číslo s rychlou animací vygenerování
+
+Gif který se po hoveru spustí a musí na něj být aplikován hover pro opětovné spuštění
