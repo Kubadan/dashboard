@@ -6,8 +6,9 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #fff3d4df;
   padding: 2rem;
+  background: var(--body-bg);
+  color: var(--text-color);
   min-height: 100vh;
 }
 
@@ -23,20 +24,20 @@ body {
   background: rgba(143, 132, 132, 0.586);
   border-radius: 10px;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--shadow-color);
   transition: transform 0.2s, box-shadow 0.2s;
   min-width: 0;
 }
 
 .widget:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px var(--shadow-hover-color);
 }
 
 /* Grid systém pro šířku widgetů */
 .widget.full {
   grid-column: 1 / -1; /* Celá šířka - 12 sloupců */
-  color:rgb(0, 0, 0);
+  color: var(--text-color);
 }
 
 .widget.half {
