@@ -1,7 +1,11 @@
-:root{
---body-bg: #262525;
---text-color: #cecbcb;
---shadow-color: rgba(247, 247, 247, 0.1);
---shadow-hover-color: rgba(247, 247, 247, 0.15);
-
+:root {
+    --widget-bg: rgba(143, 132, 132, 0.586);
+    --body-bg: #262525;
+    --text-color: #e8dfdf;
+    --shadow-color: rgba(247, 247, 247, 0.1);
+    --shadow-hover-color: rgba(247, 247, 247, 0.15);
+    --container-bg: rgb(128, 128, 128);
+    --button-bg: #b5b5b5;
+    --todo-button: #B22222;
+    --widget-color: black;
 }

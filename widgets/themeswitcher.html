@@ -1,7 +1,7 @@
 <!-- Kontejner pro přepínač motivů -->
 <div class="theme-switcher">
     <!-- Tlačítka pro přepínání. Každé má atribut data-theme pro identifikaci -->
-    <button onclick="switchTheme('light')" class="theme-btn" data-theme="light">Světlé</button>
+    <button onclick="switchTheme('cheesy')" class="theme-btn" data-theme="cheese">Sýrečkové</button>
     <button onclick="switchTheme('dark')" class="theme-btn" data-theme="dark">Tmavé</button>
     <button onclick="switchTheme('blue')" class="theme-btn" data-theme="blue">Modré</button>
     <button onclick="switchTheme('cyberpunk')" class="theme-btn" data-theme="cyberpunk">Cyberpunk</button>
@@ -13,6 +13,7 @@
         justify-content: center;
         gap: 1rem;
         padding: 0.5rem;
+        flex-wrap: wrap;
     }
 
     .theme-btn {

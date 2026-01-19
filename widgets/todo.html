@@ -1,14 +1,14 @@
 <div class="todo-widget" x-data="todoWidget()">
     <h3>Úkoly</h3>
     <div class="input-group">
-        <input type="text" x-model="newTodo" @keyup.enter="add()" placeholder="Nový úkol...">
+        <input type="text" class="addInput" x-model="newTodo" @keyup.enter="add()" placeholder="Nový úkol...">
         <button @click="add()">+</button>
     </div>
         <ul>
         <template x-for="todo in todos" :key="todo.id">
             <li :class="{ 'completed': todo.completed }">
                 <div class="todo-item-content">
-                    <input type="checkbox" x-model="todo.completed">
+                    <input type="checkbox" class="pointInput" x-model="todo.completed">
                     <span x-text="todo.text"></span>
                 </div>
                 <button @click="remove(todo.id)" class="delete-btn">&times;</button>
@@ -44,6 +44,17 @@ function todoWidget() {
 
 </script>
 <style>
+    .pointInput{
+        width: 20px;
+        height: 20px;
+        color: black;
+    }
+
+    .addInput{
+        background-color: var(--body-bg);
+        color: var(--text-color);
+    }
+
     .input-group,
     .todo-widget li,
     .todo-item-content {
@@ -55,7 +66,7 @@ function todoWidget() {
 
     .todo-widget li {
         padding: 5px;
-        border: 1px solid #aaa;
+        border: 1px solid var(--widget-bg);
         margin: 5px;
     }
     .todo-widget ul {
@@ -69,7 +80,7 @@ function todoWidget() {
 
     .todo-widget button {
         cursor: pointer;
-        background-color: red;
+        background-color: var(--todo-button);
         color: white;
         border: none;
         padding: 2px 5px;
